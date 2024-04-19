@@ -10,6 +10,8 @@
 #include <iostream>
 #include <cstring>
 
+#include <gl4esinit.h>
+
 extern "C"
 {
 	#include "game.h"
@@ -155,6 +157,8 @@ static void Boot(int argc, char** argv)
 
 	ParseCommandLine(argc, argv);
 
+	initialize_gl4es();
+
 	// Start our "machine"
 	Pomme::Init();
 
@@ -170,7 +174,7 @@ retryVideo:
 	}
 
 	// Create window
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_COMPATIBILITY);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_ES);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
 

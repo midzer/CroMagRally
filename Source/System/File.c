@@ -576,6 +576,7 @@ OSErr LoadPrefs(void)
 
 void SavePrefs(void)
 {
+	return;
 	// If prefs didn't change relative to what's on disk, don't bother rewriting them
 	if (0 == memcmp(&gDiskShadowPrefs, &gGamePrefs, sizeof(gGamePrefs)))
 	{

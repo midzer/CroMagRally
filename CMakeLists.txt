@@ -34,6 +34,8 @@ else()
 	message("Sanitizers disabled (pass -DSANITIZE=1 to enable)")
 endif()
 
+add_compile_options(-sUSE_SDL=2)
+
 #------------------------------------------------------------------------------
 # GLOBAL OPTIONS (BEFORE ADDING SUBDIRECTORIES)
 #------------------------------------------------------------------------------
@@ -65,8 +67,8 @@ add_compile_definitions(POMME_CASE_SENSITIVE_FSSPEC=1)
 
 add_subdirectory(extern/Pomme)
 
-find_package(SDL2 REQUIRED COMPONENTS main)
-find_package(OpenGL REQUIRED)
+#find_package(SDL2 REQUIRED COMPONENTS main)
+#find_package(OpenGL REQUIRED)
 
 #------------------------------------------------------------------------------
 # GAME SOURCES
@@ -95,8 +97,6 @@ source_group(TREE ${GAME_SRCDIR} PREFIX "" FILES ${GAME_ALL_SOURCES})
 
 set(GAME_LIBRARIES
 	Pomme
-	${SDL2_LIBRARIES}
-	OpenGL::GL
 )
 
 if(WIN32)
@@ -122,11 +122,12 @@ else()
 endif()
 
 target_include_directories(${GAME_TARGET} PRIVATE
-	${SDL2_INCLUDE_DIRS}
 	${OPENGL_INCLUDE_DIR}
 	extern/Pomme/src
 	${GAME_SRCDIR}/Headers
 )
+
+include_directories("extern/gl4es")
 
 
 #------------------------------------------------------------------------------

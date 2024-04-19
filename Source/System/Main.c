@@ -158,7 +158,7 @@ void InitDefaultPrefs(void)
 	gGamePrefs.splitScreenMode2P	= SPLITSCREEN_MODE_2P_TALL;
 	gGamePrefs.splitScreenMode3P	= SPLITSCREEN_MODE_3P_TALL;
 	gGamePrefs.monitorNum			= 0;			// main monitor by default
-	gGamePrefs.fullscreen			= true;
+	gGamePrefs.fullscreen			= false;
 	gGamePrefs.tagDuration 			= 3;
 	gGamePrefs.musicVolumePercent	= 60;			// careful to set these two volumes to one of the
 	gGamePrefs.sfxVolumePercent		= 60;			// the predefined values allowed in the settings menu
